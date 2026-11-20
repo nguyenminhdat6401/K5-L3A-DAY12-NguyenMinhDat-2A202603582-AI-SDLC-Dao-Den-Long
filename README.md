@@ -1,35 +1,33 @@
-# Đảo Đèn Lồng — Phase 1
-
+# Đảo Đèn Lồng — Phase 2
 Nguyễn Minh Đạt · 2A202603582
 
-Game 3D Đêm 1: giúp Mây thu nhặt đom đóm và thắp 5 đèn trước bình minh, tránh Bóng Mực. Dự án dùng Node.js 22+, Three.js và Vite, chạy trên Windows, macOS và Linux.
+Game 3D qua ba Đêm: Đảo Bến, Đảo Cau, Đảo Chuông. Mây thu thập đom đóm, thắp các đèn và tránh Bóng Mực, Gió Lạc. Contract 1.1; Phase 1 được giữ trong tag phase-1.
 
-## Chạy game
-
+## Chạy
+Yêu cầu Node.js 22+; chạy trên Windows/macOS/Linux:
 ```sh
 npm ci
 npm run dev
 ```
+Mở URL Local trong terminal. WASD di chuyển theo camera; giữ chuột trái kéo để xoay; Space nhảy; Shift lướt; E nạp; Q Tỏa Sáng; Esc/P tạm dừng. R chơi lại Đêm.
 
-Mở địa chỉ hiện trong terminal. WASD di chuyển, Space nhảy, giữ chuột trái và kéo để xoay camera, E nạp đèn, Q tỏa sáng, R chơi lại. Thu thập 3 đom đóm cho mỗi đèn; mỗi lần tỏa sáng tốn một đom đóm. Mây có 3 ngọn lửa và 300 giây.
+## Luật
+Sức chứa 10, mỗi đèn cần 10; nạp nhiều lần. Tỏa Sáng tốn 3, hồi 3 giây; Lướt 14 m/s trong 0.2 giây, hồi 1.5 giây. Bùa Gió là lá bùa đỏ viền vàng: chạy 7.2 m/s và lướt không hồi chiêu trong 10 giây. Gió Lạc là dải lụa xám xanh: cướp tối đa 3 đom đóm; Tỏa Sáng khiến nó chạy đi hoặc thả đồ đã cướp.
+Điểm: +10 mỗi đom đóm nạp, +100 mỗi đèn, +5 mỗi Bóng Mực trúng pulse; thắng thêm floor(giây còn lại)*2 + 50*Ngọn Lửa. Tổng điểm gồm các Đêm đã thắng.
 
-## Kiểm thử và headless
-
+## Kiểm chứng
 ```sh
 npm test
-node src/headless.js --seed 1 --night 1 --ticks 600 --out output.jsonl --snapshot-every 10
+node scripts/verify-phase2.js
+node src/headless.js --seed 42 --night 2 --ticks 600 --out output.jsonl
 ```
+Tùy chọn headless: --scenario, --inputs, --snapshot-every. Build web: npm run build. Bằng chứng tự sinh tại docs/proof/phase-2, báo cáo docs/phase-2.md.
+Để thử riêng một Đêm, thêm ?previewNight=2 hoặc ?previewNight=3 vào URL; ?perf=1 hiện số FPS sau 10 giây. ?inspect=entities mở cảnh so sánh Gió Lạc và Bùa Gió. Những tùy chọn xem thử không thay logic headless.
 
-Thêm `--scenario file.json` và `--inputs file.json` theo Test Contract v1.0. Logic mô phỏng và đồ họa dùng chung `src/game.js`; thông số được khai báo trong `game.contract.json`. Build bản web: `npm run build`.
-
-## Điểm và giả định
-
-Mỗi đom đóm +10 điểm, mỗi đèn +100, mỗi Bóng Mực bị choáng +20; khi thắng thêm 1 điểm mỗi giây còn lại và 50 điểm mỗi ngọn lửa còn lại. Không rơi khỏi đảo: người chơi bị chặn ở rìa (`fall_enabled: false`). Bóng Mực không đánh rơi đom đóm (`hit_drop_ratio: 0`), không vào vùng an toàn quanh đèn đã thắp. Nạp bằng một lần nhấn E; nút hành động kích hoạt khi nhấn mới. Các con số tự chọn trong `game.contract.json`.
+## Giả định
+Đêm 1 và 2 xuất phát (0,0,0). Ticket không ghi điểm xuất phát Đêm 3; chọn (0,0,-30) trên đất trống để tránh nằm dưới tầng trung tâm. Scenario có thể ghi đè vị trí. Bóng sinh thường có 30 tick spawning. Mây đứng yên thì lướt theo hướng cuối, mặc định +Z.
 
 ## Sáng tạo của tôi
+Quầng sáng, dải lụa uốn động, bùa có biểu tượng gió và nhãn, ánh trăng, sóng Tỏa Sáng, nhạc tổng hợp. Phần trình bày không tác động đầu ra headless. Mô hình hình học tự dựng; xem CREDITS.md.
 
-Mây đội nón lá, mang đèn nhỏ; đèn tỏa ánh sáng vàng khi được thắp. Đảo và các hình khối được dựng bằng mã, không dùng asset ngoài. Kiểm thử logic chung bằng `npm test`.
-
-## Trạng thái phase 1
-
-Bản triển khai ban đầu; xem `docs/phase-1.md` để biết kiểm chứng và giới hạn. Các phase sau chưa phát hành. Tài liệu lab gốc: [GUIDE.md](GUIDE.md), [RUBRIC.md](RUBRIC.md).
+Bản hiện tại chỉ được lưu cục bộ theo yêu cầu người dùng, chưa tạo tag phase-2 hoặc push.
