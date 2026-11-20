@@ -1,0 +1,1 @@
+export function translateKey(physical,bindings){const bound=Object.keys(bindings).find(action=>bindings[action]===physical);if(bound)return bound;if(physical==='ShiftRight'&&bindings.ShiftLeft==='ShiftLeft')return 'ShiftLeft';if(physical==='Escape'&&bindings.KeyP==='KeyP')return 'KeyP';return Object.hasOwn(bindings,physical)?'Unbound':physical;}

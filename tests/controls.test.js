@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {translateKey} from '../src/controls.js';
+test('rebinding removes original key and keeps new physical key',()=>{const bindings={Space:'KeyJ',KeyP:'KeyP',ShiftLeft:'ShiftLeft'};assert.equal(translateKey('Space',bindings),'Unbound');assert.equal(translateKey('KeyJ',bindings),'Space');assert.equal(translateKey('Escape',bindings),'KeyP');assert.equal(translateKey('ShiftRight',bindings),'ShiftLeft')});

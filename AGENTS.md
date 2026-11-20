@@ -1,8 +1,7 @@
-# Hướng dẫn cho agent — Phase 3
-- Nguồn yêu cầu: Ticket-03 và Test Contract 1.2 trên lab board.
-- Gameplay chạy 60 tick/s, renderer và headless dùng chung src/game.js.
-- Thông số trong game.contract.json phải khớp luật đang chạy; không sửa output bằng tay.
-- Trước khi kết thúc thay đổi chạy npm test, npm run build và node scripts/verify-phase3.js khi thay mô phỏng/contract.
-- Bằng chứng scenario được sinh tự động vào docs/proof/phase-3. Test sai vì yêu cầu đổi phải ghi lý do.
-- Phase 1 đã lưu trong tag phase-1, không di chuyển tag.
-- Chưa push hoặc tạo tag Phase 3 cho tới khi người dùng yêu cầu.
+# Hướng dẫn agent — Phase 4
+- Yêu cầu cuối: Ticket-04 / Contract 1.3, giữ gameplay 60 tick/s của v1.2.
+- Lệnh: npm test; npm run build; node scripts/verify-phase3.js khi sửa gameplay; node scripts/bench.js --seed 42 --duration 30 --out bench.json; node --expose-gc scripts/soak.js --seed 7 --nights 10 --out soak.json.
+- Không sửa tay JSON bằng chứng; benchmark dùng cảnh chuẩn và số khung thật, soak một tiến trình.
+- Dữ liệu người chơi .local/ không commit; tests bảng xếp hạng dùng thư mục tạm.
+- Không di chuyển tag cũ; chưa tag/push/release Phase 4 khi người dùng chưa yêu cầu.
+- Khi đóng gói phải kiểm tra gói giải nén chạy không cần node_modules.

@@ -1,0 +1,238 @@
+TAP version 13
+# Subtest: rebinding removes original key and keeps new physical key
+ok 1 - rebinding removes original key and keeps new physical key
+  ---
+  duration_ms: 4.51
+  type: 'test'
+  ...
+# Subtest: movement uses camera yaw and normalized diagonal
+ok 2 - movement uses camera yaw and normalized diagonal
+  ---
+  duration_ms: 4.7273
+  type: 'test'
+  ...
+# Subtest: pickup, deposit and victory
+ok 3 - pickup, deposit and victory
+  ---
+  duration_ms: 2.7965
+  type: 'test'
+  ...
+# Subtest: pulse stuns and costs light
+ok 4 - pulse stuns and costs light
+  ---
+  duration_ms: 0.885
+  type: 'test'
+  ...
+# Subtest: hit has invulnerability and can lose
+ok 5 - hit has invulnerability and can lose
+  ---
+  duration_ms: 0.6037
+  type: 'test'
+  ...
+# Subtest: headless output deterministic and invalid input exits 2
+ok 6 - headless output deterministic and invalid input exits 2
+  ---
+  duration_ms: 367.832
+  type: 'test'
+  ...
+# Subtest: dash covers 2.8 metres over 12 ticks and has cooldown
+ok 7 - dash covers 2.8 metres over 12 ticks and has cooldown
+  ---
+  duration_ms: 1.289
+  type: 'test'
+  ...
+# Subtest: pause freezes gameplay and resumes on a new press
+ok 8 - pause freezes gameplay and resumes on a new press
+  ---
+  duration_ms: 0.3746
+  type: 'test'
+  ...
+# Subtest: three nights expose specified lantern counts and time limits
+ok 9 - three nights expose specified lantern counts and time limits
+  ---
+  duration_ms: 0.4822
+  type: 'test'
+  ...
+# Subtest: charm pickup grants effect and starts respawn
+ok 10 - charm pickup grants effect and starts respawn
+  ---
+  duration_ms: 0.7387
+  type: 'test'
+  ...
+# Subtest: drifter steals at most three motes without costing flames
+ok 11 - drifter steals at most three motes without costing flames
+  ---
+  duration_ms: 0.8792
+  type: 'test'
+  ...
+# Subtest: fall costs one flame and waits 60 simulation ticks to respawn
+ok 12 - fall costs one flame and waits 60 simulation ticks to respawn
+  ---
+  duration_ms: 0.6117
+  type: 'test'
+  ...
+# Subtest: wind starts at tick 1800 in night 3 and can be disabled
+ok 13 - wind starts at tick 1800 in night 3 and can be disabled
+  ---
+  duration_ms: 44.1741
+  type: 'test'
+  ...
+# Subtest: safe lantern pushes shade out and protects player
+ok 14 - safe lantern pushes shade out and protects player
+  ---
+  duration_ms: 1.5029
+  type: 'test'
+  ...
+# Subtest: shade leaves a lit lantern safe zone within 30 ticks
+ok 15 - shade leaves a lit lantern safe zone within 30 ticks
+  ---
+  duration_ms: 1.9834
+  type: 'test'
+  ...
+# Subtest: enough lights at dawn wins
+ok 16 - enough lights at dawn wins
+  ---
+  duration_ms: 1.0927
+  type: 'test'
+  ...
+# Subtest: no flames takes precedence over lighting last lantern
+ok 17 - no flames takes precedence over lighting last lantern
+  ---
+  duration_ms: 0.5046
+  type: 'test'
+  ...
+# Subtest: night 3 cliffs block ground movement but ramps allow climbing
+ok 18 - night 3 cliffs block ground movement but ramps allow climbing
+  ---
+  duration_ms: 1.5037
+  type: 'test'
+  ...
+# Subtest: wind snapshots retain their own tick state
+ok 19 - wind snapshots retain their own tick state
+  ---
+  duration_ms: 24.3684
+  type: 'test'
+  ...
+# Subtest: invalid scenario extension fails with exit 2
+ok 20 - invalid scenario extension fails with exit 2
+  ---
+  duration_ms: 103.5023
+  type: 'test'
+  ...
+# Subtest: spawn schedules continue during respawn wait
+ok 21 - spawn schedules continue during respawn wait
+  ---
+  duration_ms: 0.6055
+  type: 'test'
+  ...
+# Subtest: pulse stun remains for 120 ticks and pushes exactly four metres
+ok 22 - pulse stun remains for 120 ticks and pushes exactly four metres
+  ---
+  duration_ms: 1.283
+  type: 'test'
+  ...
+# Subtest: night 2 pad launches toward the other island and lands there
+ok 23 - night 2 pad launches toward the other island and lands there
+  ---
+  duration_ms: 1.2796
+  type: 'test'
+  ...
+# Subtest: air dash holds altitude for all twelve ticks
+ok 24 - air dash holds altitude for all twelve ticks
+  ---
+  duration_ms: 0.3866
+  type: 'test'
+  ...
+# Subtest: drifter releases all stolen motes and expires after 120 ticks
+ok 25 - drifter releases all stolen motes and expires after 120 ticks
+  ---
+  duration_ms: 1.7339
+  type: 'test'
+  ...
+# Subtest: wind charm clears dash cooldown and permits a new dash after twelve ticks
+ok 26 - wind charm clears dash cooldown and permits a new dash after twelve ticks
+  ---
+  duration_ms: 0.6798
+  type: 'test'
+  ...
+# Subtest: pulse drives a chasing drifter away before it can steal
+ok 27 - pulse drives a chasing drifter away before it can steal
+  ---
+  duration_ms: 0.3063
+  type: 'test'
+  ...
+# Subtest: night 2 and 3 accept their final lantern and award a win
+ok 28 - night 2 and 3 accept their final lantern and award a win
+  ---
+  duration_ms: 0.5524
+  type: 'test'
+  ...
+# Subtest: leaderboard persists on disk and CLI exports sorted entries
+ok 29 - leaderboard persists on disk and CLI exports sorted entries
+  ---
+  duration_ms: 437.0568
+  type: 'test'
+  ...
+# Subtest: oil expires at exact integer tick and resets progress
+ok 30 - oil expires at exact integer tick and resets progress
+  ---
+  duration_ms: 9.2164
+  type: 'test'
+  ...
+# Subtest: refuel uses ceiling and does not increase lighting count
+ok 31 - refuel uses ceiling and does not increase lighting count
+  ---
+  duration_ms: 0.986
+  type: 'test'
+  ...
+# Subtest: relighting costs five and grows capacity
+ok 32 - relighting costs five and grows capacity
+  ---
+  duration_ms: 1.0949
+  type: 'test'
+  ...
+# Subtest: drainers add five units per second to passive decay
+ok 33 - drainers add five units per second to passive decay
+  ---
+  duration_ms: 4.3748
+  type: 'test'
+  ...
+# Subtest: pulse scores fifteen for draining shade
+ok 34 - pulse scores fifteen for draining shade
+  ---
+  duration_ms: 1.0518
+  type: 'test'
+  ...
+# Subtest: dawn threshold and no early wins across three nights
+ok 35 - dawn threshold and no early wins across three nights
+  ---
+  duration_ms: 2.3068
+  type: 'test'
+  ...
+# Subtest: capacity resets and never exceeds twenty
+ok 36 - capacity resets and never exceeds twenty
+  ---
+  duration_ms: 0.427
+  type: 'test'
+  ...
+# Subtest: moving shades separate instead of stacking
+ok 37 - moving shades separate instead of stacking
+  ---
+  duration_ms: 21.5497
+  type: 'test'
+  ...
+# Subtest: leaderboard validates names, sorts scores and breaks ties by achievement time
+ok 38 - leaderboard validates names, sorts scores and breaks ties by achievement time
+  ---
+  duration_ms: 3.5912
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 825.9993

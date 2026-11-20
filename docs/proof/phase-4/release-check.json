@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-11-20T12:13:38.321Z",
+  "manifest_files": 14,
+  "no_node_modules": true,
+  "http_page": true,
+  "http_assets": true,
+  "leaderboard_save": true,
+  "leaderboard_export": true,
+  "passed": true
+}

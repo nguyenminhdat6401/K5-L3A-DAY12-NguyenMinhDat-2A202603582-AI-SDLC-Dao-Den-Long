@@ -1,0 +1,1 @@
+export function normalizeEntries(entries){return entries.filter(e=>/^[A-Za-z0-9_]{3,12}$/.test(e.name)&&Number.isFinite(e.score)&&e.score>=0&&Number.isInteger(e.nights_won)&&e.nights_won>=0&&e.nights_won<=3&&!Number.isNaN(Date.parse(e.achieved_at))&&Number.isInteger(e.seed)).sort((a,b)=>b.score-a.score||Date.parse(a.achieved_at)-Date.parse(b.achieved_at)).slice(0,10)}
