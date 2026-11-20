@@ -1,0 +1,42 @@
+{
+  "node": "v22.15.0",
+  "platform": "win32",
+  "cpu": "AMD Ryzen 5 5625U with Radeon Graphics         ",
+  "results": [
+    {
+      "name": "dash",
+      "passed": true,
+      "seconds": 0.0629001
+    },
+    {
+      "name": "pause",
+      "passed": true,
+      "seconds": 0.064118
+    },
+    {
+      "name": "charm",
+      "passed": true,
+      "seconds": 0.05713689999999997
+    },
+    {
+      "name": "drifter",
+      "passed": true,
+      "seconds": 0.05565339999999998
+    },
+    {
+      "name": "fall",
+      "passed": true,
+      "seconds": 0.06144740000000001
+    },
+    {
+      "name": "wind",
+      "passed": true,
+      "seconds": 0.09090699999999993
+    },
+    {
+      "name": "night3",
+      "passed": true,
+      "seconds": 3.3049153000000007
+    }
+  ]
+}

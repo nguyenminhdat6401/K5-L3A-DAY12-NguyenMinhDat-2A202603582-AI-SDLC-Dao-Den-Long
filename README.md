@@ -1,33 +1,32 @@
-# Đảo Đèn Lồng — Phase 2
-Nguyễn Minh Đạt · 2A202603582
+# Đảo Đèn Lồng — Phase 3
+Nguyễn Minh Đạt · 2A202603582 · Contract 1.2
 
-Game 3D qua ba Đêm: Đảo Bến, Đảo Cau, Đảo Chuông. Mây thu thập đom đóm, thắp các đèn và tránh Bóng Mực, Gió Lạc. Contract 1.1; Phase 1 được giữ trong tag phase-1.
+Mục tiêu: giữ đảo sáng tới bình minh. Đêm 1/2/3 kéo dài 240/270/300 giây; cần ít nhất 3/5, 4/6, 5/7 đèn sáng tại tick cuối và còn Ngọn Lửa. Thắp đủ đèn không kết thúc sớm.
 
 ## Chạy
-Yêu cầu Node.js 22+; chạy trên Windows/macOS/Linux:
+Node.js 22+, Windows/macOS/Linux:
 ```sh
 npm ci
 npm run dev
 ```
-Mở URL Local trong terminal. WASD di chuyển theo camera; giữ chuột trái kéo để xoay; Space nhảy; Shift lướt; E nạp; Q Tỏa Sáng; Esc/P tạm dừng. R chơi lại Đêm.
+Mở URL Local. WASD di chuyển; giữ chuột trái kéo camera; Space nhảy; Shift lướt; E nạp/châm dầu; Q Tỏa Sáng; Esc/P tạm dừng. R chơi lại Đêm. Cài đặt trong menu tạm dừng có âm lượng, độ nhạy và bảng màu dễ phân biệt, được lưu.
 
-## Luật
-Sức chứa 10, mỗi đèn cần 10; nạp nhiều lần. Tỏa Sáng tốn 3, hồi 3 giây; Lướt 14 m/s trong 0.2 giây, hồi 1.5 giây. Bùa Gió là lá bùa đỏ viền vàng: chạy 7.2 m/s và lướt không hồi chiêu trong 10 giây. Gió Lạc là dải lụa xám xanh: cướp tối đa 3 đom đóm; Tỏa Sáng khiến nó chạy đi hoặc thả đồ đã cướp.
-Điểm: +10 mỗi đom đóm nạp, +100 mỗi đèn, +5 mỗi Bóng Mực trúng pulse; thắng thêm floor(giây còn lại)*2 + 50*Ngọn Lửa. Tổng điểm gồm các Đêm đã thắng.
+## Luật Phase 3
+- Đèn có 100 dầu, hao 1/giây. Mỗi đom đóm châm thêm 10 dầu. Thắp lần đầu cần 10 đom đóm, thắp lại cần 5.
+- Dầu dưới 30 mất vùng an toàn; Bóng Mực wander có thể tới hút thêm 5 dầu/giây mỗi con.
+- Sức chứa 10 + 2 mỗi lần thắp, tối đa 20. Châm dầu không tăng sức chứa.
+- Điểm: +5/đom đóm nạp, +100 thắp mới, +40 thắp lại, +5 Bóng trúng pulse hoặc tổng +15 nếu đang drain. Thắng bình minh: mỗi đèn sáng +50+floor(dầu), mỗi Ngọn Lửa +50; bỏ thưởng thời gian. Chỉ cộng các Đêm đã thắng vào tổng điểm.
+- Gió Lạc là dải lụa xám xanh; Bùa Gió là lá bùa đỏ viền vàng. Các luật di chuyển, lướt và bùa của Phase 2 vẫn giữ.
 
-## Kiểm chứng
+## Kiểm tra
 ```sh
 npm test
-node scripts/verify-phase2.js
-node src/headless.js --seed 42 --night 2 --ticks 600 --out output.jsonl
+node scripts/verify-phase3.js
+node src/headless.js --seed 42 --night 1 --ticks 600 --out output.jsonl
 ```
-Tùy chọn headless: --scenario, --inputs, --snapshot-every. Build web: npm run build. Bằng chứng tự sinh tại docs/proof/phase-2, báo cáo docs/phase-2.md.
-Để thử riêng một Đêm, thêm ?previewNight=2 hoặc ?previewNight=3 vào URL; ?perf=1 hiện số FPS sau 10 giây. ?inspect=entities mở cảnh so sánh Gió Lạc và Bùa Gió. Những tùy chọn xem thử không thay logic headless.
+Headless hỗ trợ --scenario, --inputs, --snapshot-every; build web bằng npm run build. Báo cáo tại docs/phase-3.md, ADR tại docs/ADR-003.md, thay đổi phá tương thích trong CHANGELOG.md. Bằng chứng Phase 1–2 giữ nguyên ở tag tương ứng; verify-phase2 dành cho tag phase-2.
 
-## Giả định
-Đêm 1 và 2 xuất phát (0,0,0). Ticket không ghi điểm xuất phát Đêm 3; chọn (0,0,-30) trên đất trống để tránh nằm dưới tầng trung tâm. Scenario có thể ghi đè vị trí. Bóng sinh thường có 30 tick spawning. Mây đứng yên thì lướt theo hướng cuối, mặc định +Z.
+## Giả định và sáng tạo
+Điểm xuất phát Đêm 3 chọn (0,0,-30) vì ticket không chỉ định, tránh nằm dưới tầng trung tâm; scenario ghi đè được. Bóng sinh thường spawning 30 tick. Các quầng sáng, nhạc tổng hợp và nhãn nhận diện chỉ phục vụ hiển thị, không đổi headless. Xem CREDITS.md.
 
-## Sáng tạo của tôi
-Quầng sáng, dải lụa uốn động, bùa có biểu tượng gió và nhãn, ánh trăng, sóng Tỏa Sáng, nhạc tổng hợp. Phần trình bày không tác động đầu ra headless. Mô hình hình học tự dựng; xem CREDITS.md.
-
-Bản hiện tại chỉ được lưu cục bộ theo yêu cầu người dùng, chưa tạo tag phase-2 hoặc push.
+Để thử riêng một Đêm thêm ?previewNight=2 hoặc 3; ?perf=1 hiện FPS. Những tùy chọn xem thử không thay logic headless. Phase 3 hiện chỉ lưu tại máy, chưa tag/push.

@@ -10,7 +10,7 @@ try {
  if(!s||Array.isArray(s)||typeof s!=='object'||!Array.isArray(f)||s.player?.pos&&!pos(s.player.pos)||s.motes&&!Array.isArray(s.motes)||s.motes?.some(p=>!pos(p))||s.shades&&!Array.isArray(s.shades)||s.shades?.some(x=>!pos(x.pos))||s.lanterns&&!Array.isArray(s.lanterns)||s.lanterns?.some(x=>typeof x.id!=='string'||x.pos&&!pos(x.pos)))fail('Invalid scenario');
  const boolFields=['random_motes','random_shades','random_drifters','wind_enabled'];if(boolFields.some(k=>k in s&&typeof s[k]!=='boolean'))fail('Invalid scenario flags');
  for(const key of ['shades','drifters','charms']){if(key in s&&(!Array.isArray(s[key])||s[key].some(x=>!x||typeof x!=='object'||!pos(x.pos)||(x.id!==undefined&&typeof x.id!=='string'))))fail('Invalid '+key);}
- if(s.shades?.some(x=>x.state!==undefined&&!['spawning','wander','chase','recoil','stunned'].includes(x.state)))fail('Invalid shade state');
+ if(s.shades?.some(x=>x.state!==undefined&&!['spawning','wander','chase','recoil','stunned','drain'].includes(x.state)))fail('Invalid shade state');
  if(s.drifters?.some(x=>x.state!==undefined&&!['idle','chase','flee','removed'].includes(x.state)))fail('Invalid drifter state');
  if(s.player&&(!s.player||typeof s.player!=='object'||['invuln_ticks','dash_cd_ticks','pulse_cd_ticks','charm_ticks'].some(k=>k in s.player&&(!Number.isInteger(s.player[k])||s.player[k]<0))))fail('Invalid player');
  let last=-1;for(const x of f){if(!Number.isInteger(x.tick)||x.tick<=last||x.tick<0||x.move&&(!Array.isArray(x.move)||x.move.length!==2||x.move.some(v=>!Number.isFinite(v)||Math.abs(v)>1))||['jump','pulse','interact','dash','pause'].some(k=>k in x&&typeof x[k]!=='boolean')||'cam_yaw_deg'in x&&!Number.isFinite(x.cam_yaw_deg))fail('Invalid inputs');last=x.tick;}
